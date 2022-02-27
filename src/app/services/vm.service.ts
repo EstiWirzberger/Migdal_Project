@@ -1,14 +1,37 @@
-import { Component } from '@angular/core';
-import { VmService } from './services/vm.service';
+import { Injectable } from '@angular/core';
 
-
-@Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+@Injectable({
+  providedIn: 'root'
 })
-export class AppComponent {
-  title = 'migdal';
+export class VmService {
+  contactPersons: {
+    id: number;
+    deliveryFlag: boolean;
+    type: { code: number; value: string; };
+    firstName: string;
+    lastName: string;
+    identity: number;
+    address: { homeNumber: number; cityName: string; streetName: string; };
+    cellPhone: number;
+    email: string;
+  } = {
+      id: 0,
+      deliveryFlag: false,
+      type: {
+        code: 0,
+        value: ''
+      },
+      firstName: '',
+      lastName: '',
+      identity: 0,
+      address: {
+        homeNumber: 0,
+        cityName: '',
+        streetName: ''
+      },
+      cellPhone: 0,
+      email: ''
+    };
   process = {
     processType: "AMBULATORY_HEALTH_CLAIM",
     processStatus: 1,
@@ -20,7 +43,7 @@ export class AppComponent {
         code: 1,
         value: "פתוחה"
       },
-      deathAfterDisabilityFlag: false,
+      deathAfterDisabilityFlag: true,
       operativeClaims: [
         {
           operativeClaimNum: 123,
@@ -77,4 +100,24 @@ export class AppComponent {
     },
 
   }
+  count= 0;
+  isToShow=true;
+  processModel = {
+    superClaim: {
+      operativeClaims:'',
+      pensionFollowUpForInsuredType:'',
+      deathAfterDisabilityFlag:false,
+      irregularSuperClaimFlag: false,
+      inquiryPorcessFlag: {
+        superClaimStatus: {
+          value: ''
+        }
+      },
+      superClaimStatus: {
+        value: 'פתוחה'
+      }
+    }
+  }
+  claimRemarks() { };
+  getClaims() { };
 };
