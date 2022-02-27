@@ -27,7 +27,7 @@ export class AComponent implements OnInit {
         deliveryFlag: true,
         type: {
           code: 1,
-          value: "מבוטח"
+          value: "2מבוטח"
         },
         firstName: "ניקיטה",
         lastName: "ג'יין",
